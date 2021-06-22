@@ -3,25 +3,23 @@ import { initReactI18next } from 'react-i18next'
 import Backend from 'i18next-http-backend'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-// const allowedLanguages = ['en', 'mon']
+const allowedLanguages = ['en', 'mon']
 
-// const defaultLanguage = 'mon'
-// let lng = defaultLanguage
+const defaultLanguage = 'mon'
+let lng = defaultLanguage
 
-// const storageLanguage = typeof window !== 'undefined' ? window.localStorage.getItem('language') : 'undefined'
+const storageLanguage = typeof window !== 'undefined' ? localStorage.getItem('i18nextLng') : 'undefined'
 
-// if(storageLanguage && allowedLanguages.indexOf(storageLanguage) > -1) {
-//     lng = storageLanguage
-// }
-
-const lng = typeof window !== 'undefined' ? localStorage.getItem('i18nextLng') : 'undefined'
+if(storageLanguage && allowedLanguages.indexOf(storageLanguage) > -1) {
+     lng = storageLanguage
+}
 
 i18n 
 .use(Backend)
 .use(LanguageDetector)
 .use(initReactI18next)
 .init({
-    lng: 'mon',
+    lng,
     debug: false,
     keySeparator: false,
     interpolation: {
