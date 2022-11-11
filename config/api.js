@@ -1,4 +1,4 @@
-const site = 'https://amart.janamon.co/'
+const site = 'https://amartdein.mongenusnetwork.com/'
 const json = 'wp-json/wp/v2'
 const url = `${site}${json}`
 
